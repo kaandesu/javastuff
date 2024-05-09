@@ -69,13 +69,15 @@ public class App {
 
     System.out.println("-----: " + result);
 
-    /*
-     * stringStream.map(sentence -> sentence.chars().mapToObj(c -> (char) c)
-     * .map(c -> encodingMap.getOrDefault(c, c))
-     * .collect(StringBuffer::new, StringBuffer::append, StringBuffer::append))
-     * .filter(sentence -> sentence.chars().filter(Character::isDigit).count() > 0)
-     * .forEach(System.out::println);
-     */
+    Stream<String> stringStream2 = Stream.of("wryyl", "kaan", "test", "longtext", "sm", "very long text", "sentence2",
+        "sentence2",
+        "sentence3");
+
+    stringStream2.map(sentence -> sentence.chars().mapToObj(c -> (char) c)
+        .map(c -> encodingMap.getOrDefault(c, c))
+        .collect(StringBuffer::new, StringBuffer::append, StringBuffer::append))
+        .filter(s -> s.chars().filter(Character::isDigit).count() > 0)
+        .forEach(System.out::println);
 
     /* NOTE: DERS */
 
